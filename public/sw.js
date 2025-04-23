@@ -1,40 +1,41 @@
-const CACHE_NAME = "mycache-v2";
+const CACHE_NAME = "mycache";
 const urlsToCache = [
   "/",
-  "/index.html",
-  "/books/atomic-habits.webp"
+  "/index.html"
 ];
 
+// Install event: Cache initial files
 self.addEventListener("install", (event) => {
-    console.log("Caching assets");
-    event.waitUntil(
-      caches.open(CACHE_NAME).then((cache) => {
-        return cache.addAll(urlsToCache);
-      })
-    );
-  });
-  
-  // Fetch event: Serves cached assets
-  self.addEventListener("fetch", (event) => {
-    event.respondWith(
-      caches.match(event.request).then((response) => {
-        return response || fetch(event.request);
-      })
-    );
-  });
-  
-  // Activate event: Clears old caches
-  self.addEventListener("activate", (event) => {
-    event.waitUntil(
-      caches.keys().then((cacheNames) => {
-        return Promise.all(
-          cacheNames.map((cache) => {
-            if (cache !== CACHE_NAME) {
-              console.log("Deleting old cache:", cache);
-              return caches.delete(cache);
-            }
+  console.log("Service Worker installing...");
+  self.skipWaiting(); // 👈 Forces it to activate immediately
+  event.waitUntil(
+    caches.open(CACHE_NAME).then((cache) => cache.addAll(urlsToCache))
+  );
+});
+
+
+// Fetch event: Serve cached files or fetch from network
+self.addEventListener("fetch", (event) => {
+  event.respondWith(
+    (async () => {
+      const response = await caches.match(event.request);
+      return response || fetch(event.request);
+    })()
+  );
+});
+
+// Activate event: Delete old caches
+self.addEventListener("activate", (event) => {
+  event.waitUntil(
+    caches.keys().then((cacheNames) => {
+      return Promise.all(
+        cacheNames
+          .filter((cache) => cache !== CACHE_NAME)
+          .map((cache) => {
+            console.log("Deleting old cache:", cache);
+            return caches.delete(cache);
           })
-        );
-      })
-    );
-  });
+      );
+    })
+  );
+});
