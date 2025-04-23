@@ -2,7 +2,6 @@ const CACHE_NAME = "mycache-v2";
 const urlsToCache = [
   "/",
   "/index.html",
-  "/offline.html",
   "/books/atomic-habits.webp"
 ];
 
