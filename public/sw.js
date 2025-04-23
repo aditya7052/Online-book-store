@@ -16,12 +16,16 @@ self.addEventListener("install", (event) => {
 
 // Fetch event: Serve cached files or fetch from network
 self.addEventListener("fetch", (event) => {
-  event.respondWith(
-    (async () => {
-      const response = await caches.match(event.request);
-      return response || fetch(event.request);
-    })()
-  );
+  try{
+    event.respondWith(
+      (async () => {
+        const response = await caches.match(event.request);
+        return response || fetch(event.request);
+      })()
+    );
+  }catch(err){
+    console.log(err)
+  }
 });
 
 // Activate event: Delete old caches
