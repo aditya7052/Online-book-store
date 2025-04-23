@@ -1,1 +1,90 @@
-export const books=[{id:1,price:10.5,rating:5,title:"Atomic Habits:Proven Way To Build Good Habits",author:"James Clear",reviews:"69,548",image:"atomic-habits.webp",printLength:320,language:"English",PublicationDate:"16 April 2018",inStock:!0},{id:2,price:14,rating:5,title:"Confess",author:"Colleen Hoover",reviews:"3,980",image:"confess.webp",printLength:410,language:"English",PublicationDate:"1 March 2015",inStock:!0},{id:3,price:9.05,rating:5,title:"The Trouble With Hating You",author:"Sajni Patel",reviews:"235",image:"the-trouble-with-hating-you.webp",printLength:352,language:"English",PublicationDate:"1 June 2019",inStock:!0},{id:4,price:16.45,rating:4.5,title:"Hopeless",author:"Colleen Hoover",reviews:"1,587",image:"hopeless.webp",printLength:416,language:"English",PublicationDate:"8 October 2012",inStock:!0},{id:5,price:8,rating:4,title:"Rich Dad Poor Dad",author:"Robert T.Kiyosaki",reviews:"8,661",image:"rich-dad-poor-dad.webp",printLength:336,language:"English",PublicationDate:"27 April 2017",inStock:!0},{id:6,price:21,rating:3.5,title:"One True Loves",author:"Taylor Jenkins Reid",reviews:"2,421",image:"one-true-love.webp",printLength:342,language:"English",PublicationDate:"17 July 2016",inStock:!0},{id:7,price:11.05,rating:4.5,title:"Think And Grow Rich",author:"Napolen Hill",reviews:"57,521",image:"think-and-grow-rich.webp",printLength:320,language:"English",PublicationDate:"1 September 2005",inStock:!0},];
+export const books = [
+    {
+        id: 1,
+        price: 10.5,
+        rating: 5,
+        title: "Atomic Habits:Proven Way To Build Good Habits",
+        author: "James Clear", reviews: "69,548",
+        image: "atomic-habits.webp",
+        printLength: 320, language: "English",
+        PublicationDate: "16 April 2018",
+        inStock: !0
+    },
+    {
+        id: 2,
+        price: 14,
+        rating: 5,
+        title: "Confess",
+        author: "Colleen Hoover",
+        reviews: "3,980",
+        image: "confess.webp",
+        printLength: 410,
+        language: "English",
+        PublicationDate: "1 March 2015",
+        inStock: !0
+    },
+    {
+        id: 3,
+        price: 9.05,
+        rating: 5,
+        title: "The Trouble With Hating You",
+        author: "Sajni Patel",
+        reviews: "235",
+        image: "the-trouble-with-hating-you.webp",
+        printLength: 352,
+        language: "English",
+        PublicationDate: "1 June 2019", inStock: !0
+    },
+    {
+        id: 4,
+        price: 16.45,
+        rating: 4.5,
+        title: "Hopeless",
+        author: "Colleen Hoover",
+        reviews: "1,587",
+        image: "hopeless.webp",
+        printLength: 416,
+        language: "English",
+        PublicationDate: "8 October 2012",
+        inStock: !0
+    },
+    {
+        id: 5,
+        price: 8,
+        rating: 4,
+        title: "Rich Dad Poor Dad",
+        author: "Robert T.Kiyosaki",
+        reviews: "8,661",
+        image: "rich-dad-poor-dad.webp",
+        printLength: 336,
+        language: "English",
+        PublicationDate: "27 April 2017",
+        inStock: !0
+    },
+    {
+        id: 6,
+        price: 21,
+        rating: 3.5,
+        title: "One True Loves",
+        author: "Taylor Jenkins Reid",
+        reviews: "2,421",
+        image: "one-true-love.webp",
+        printLength: 342,
+        language: "English",
+        PublicationDate: "17 July 2016",
+        inStock: !0
+    },
+    {
+        id: 7,
+        price: 11.05,
+        rating: 4.5,
+        title: "Think And Grow Rich",
+        author: "Napolen Hill",
+        reviews: "57,521",
+        image: "think-and-grow-rich.webp",
+        printLength: 320,
+        language: "English",
+        PublicationDate: "1 September 2005",
+        inStock: !0
+    },
+];
