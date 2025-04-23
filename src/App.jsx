@@ -15,6 +15,8 @@ import { store } from "./app/store";
 import Cart from "./pages/cart/Cart";
 import SingleBook from "./pages/singleBook/SingleBook";
 
+import './StatusBanner.css';
+
 function App() {
   const [menuClicked, setMenuClicked] = useState(false);
   const location = useLocation();
@@ -67,15 +69,16 @@ function App() {
       </Routes>
       <Footer />
       {!isOnline && (
-        <div className="fixed bottom-0 w-full bg-red-600 text-white text-center p-2 z-50">
-          ⚠️ You are currently offline
-        </div>
-      )}
-      {showOnlineBanner && (
-        <div className="fixed bottom-0 w-full bg-green-600 text-white text-center p-2 z-50">
-          ✅ Back to Online
-        </div>
-      )}
+  <div className="status-banner offline">
+    ⚠️ You are currently offline
+  </div>
+)}
+
+{showOnlineBanner && (
+  <div className="status-banner online">
+    ✅ Back to Online
+  </div>
+)}
     </Provider>
   );
 }
