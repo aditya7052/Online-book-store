@@ -18,25 +18,31 @@ import SingleBook from "./pages/singleBook/SingleBook";
 function App() {
   const [menuClicked, setMenuClicked] = useState(false);
   const location = useLocation();
-const [isOnline, setIsOnline] = useState(navigator.onLine);
+ const [isOnline, setIsOnline] = useState(navigator.onLine);
   const [showOnlineBanner, setShowOnlineBanner] = useState(false);
 
-  const handleOnline = () => {
-    setIsOnline(true);
-    setShowOnlineBanner(true);
-    setTimeout(() => {
-      setShowOnlineBanner(false);
-    }, 2000);
-  };
-
-  const handleOffline = () => {
-    setIsOnline(false);
-    setShowOnlineBanner(false);
-  };
-
   useEffect(() => {
+    const handleOnline = () => {
+      setIsOnline(true);
+      setShowOnlineBanner(true);
+
+      // Automatically hide banner after 2s
+      const timer = setTimeout(() => {
+        setShowOnlineBanner(false);
+      }, 2000);
+
+      // Clean up in case the user goes offline quickly again
+      return () => clearTimeout(timer);
+    };
+
+    const handleOffline = () => {
+      setIsOnline(false);
+      setShowOnlineBanner(false);
+    };
+
     window.addEventListener("online", handleOnline);
     window.addEventListener("offline", handleOffline);
+
     return () => {
       window.removeEventListener("online", handleOnline);
       window.removeEventListener("offline", handleOffline);
