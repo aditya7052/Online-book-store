@@ -18,7 +18,36 @@ import SingleBook from "./pages/singleBook/SingleBook";
 function App() {
   const [menuClicked, setMenuClicked] = useState(false);
   const location = useLocation();
+ const [isOnline, setIsOnline] = useState(navigator.onLine);
+  const [showOnlineBanner, setShowOnlineBanner] = useState(false);
 
+  useEffect(() => {
+    const handleOnline = () => {
+      setIsOnline(true);
+      setShowOnlineBanner(true);
+
+      // Automatically hide banner after 2s
+      const timer = setTimeout(() => {
+        setShowOnlineBanner(false);
+      }, 2000);
+
+      // Clean up in case the user goes offline quickly again
+      return () => clearTimeout(timer);
+    };
+
+    const handleOffline = () => {
+      setIsOnline(false);
+      setShowOnlineBanner(false);
+    };
+
+    window.addEventListener("online", handleOnline);
+    window.addEventListener("offline", handleOffline);
+
+    return () => {
+      window.removeEventListener("online", handleOnline);
+      window.removeEventListener("offline", handleOffline);
+    };
+  }, []);
   useEffect(() => {
     window.scrollTo(0, 0);
   }, [location]);
@@ -37,6 +66,16 @@ function App() {
         <Route path="/books/:id" element={<SingleBook />} />
       </Routes>
       <Footer />
+      {!isOnline && (
+        <div className="fixed bottom-0 w-full bg-red-600 text-white text-center p-2 z-50">
+          ⚠️ You are currently offline
+        </div>
+      )}
+      {showOnlineBanner && (
+        <div className="fixed bottom-0 w-full bg-green-600 text-white text-center p-2 z-50">
+          ✅ Back to Online
+        </div>
+      )}
     </Provider>
   );
 }
