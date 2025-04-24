@@ -1,6 +1,7 @@
 import React from "react";
 import "./footer.css";
 import { Link } from "react-router-dom";
+import { FaInstagram, FaTelegram, FaYoutube, FaFacebook, FaTwitter } from "react-icons/fa";
 
 const Footer = () => {
   return (
@@ -9,32 +10,33 @@ const Footer = () => {
         <p>Follow us on social media</p>
         <ul>
           <li>
-            <i className="bi bi-instagram"></i>
+            <FaInstagram />
           </li>
           <li>
-            <i className="bi bi-telegram"></i>
+            <FaTelegram />
           </li>
           <li>
-            <i className="bi bi-youtube"></i>
+            <FaYoutube />
           </li>
           <li>
-            <i className="bi bi-facebook"></i>
+            <FaFacebook />
           </li>
           <li>
-            <i className="bi bi-twitter"></i>
+            <FaTwitter />
           </li>
         </ul>
       </div>
       <div className="lower-footer">
         <div className="links section">
           <h3>Usefull Links</h3>
-          <ul>
-            <Link to="./">Home</Link>
-            <Link to="./authors">Authors</Link>
-            <Link to="./blog">Blog</Link>
-            <Link to="./about">About Us</Link>
-            <Link to="./contact">Contact Us</Link>
+          <ul style={{ color: "white", listStyle: "none" }}>
+            <li><Link to="/" style={{ color: "white", textDecoration: "none" }}>Home</Link></li>
+            <li><Link to="/authors" style={{ color: "white", textDecoration: "none" }}>Authors</Link></li>
+            <li><Link to="/blog" style={{ color: "white", textDecoration: "none" }}>Blog</Link></li>
+            <li><Link to="/about" style={{ color: "white", textDecoration: "none" }}>About Us</Link></li>
+            <li><Link to="/contact" style={{ color: "white", textDecoration: "none" }}>Contact Us</Link></li>
           </ul>
+
         </div>
         <div className="contact section">
           <h3>Contact Information</h3>

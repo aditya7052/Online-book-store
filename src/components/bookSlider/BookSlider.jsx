@@ -3,6 +3,8 @@ import BookCard from "./BookCard";
 import "./BookSlider.css";
 import { useState } from "react";
 import Model from "./Model";
+import { FaAnglesLeft } from "react-icons/fa6";
+import { FaAngleRight } from "react-icons/fa";
 
 const BookSlider = ({ title, booksList }) => {
   const [swipesNumber, setSwipeNumber] = useState(0);
@@ -37,10 +39,11 @@ const BookSlider = ({ title, booksList }) => {
     <>
       <div className="book-slider">
         {swipesNumber !== 0 && (
-          <i className="bi bi-chevron-left" onClick={handleLeft}></i>
+
+          <FaAnglesLeft className="bi bi-chevron-left" onClick={handleLeft}/>
         )}
         {!rightDisappear && (
-          <i className="bi bi-chevron-right" onClick={handleRight}></i>
+          <FaAngleRight className="bi bi-chevron-right" onClick={handleRight}/>
         )}
         <h2>{title}</h2>
         <div className="book-slider-container" ref={bookSlider}>

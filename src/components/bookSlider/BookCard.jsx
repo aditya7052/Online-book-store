@@ -3,6 +3,8 @@ import { useDispatch, useSelector } from "react-redux";
 import { adding } from "../../features/itemSlice";
 import Rating from "./Rating";
 import useWindowDimensions from "../../features/useWindowDimensions";
+import { FaCartPlus } from "react-icons/fa";
+import { AiFillEye } from "react-icons/ai";
 
 const BookCard = ({
   setShowDetails,
@@ -34,7 +36,7 @@ const BookCard = ({
   return (
     <>
       <div ref={lastBook} className="book-card">
-        <img src={`/books/${book.image}`} alt="book" />
+        <img loading="lazy" src={`/books/${book.image}`} alt="book" />
         <div className="info">
           <div className="book-info">
             <h3> {book.title} </h3>
@@ -44,12 +46,16 @@ const BookCard = ({
             </div>
           </div>
           <div className="card-footer">
-            <i
-              className="bi bi-eye-fill"
+
+            
+              <AiFillEye className="bi bi-eye-fill"
               onClick={() => {
                 setShowDetails(book.id);
-              }}></i>
-            <i className="bi bi-cart-plus" onClick={handleAddToCart}></i>
+              }}/>
+
+
+
+              <FaCartPlus onClick={handleAddToCart} className="bi bi-cart-plus"/>
           </div>
         </div>
       </div>

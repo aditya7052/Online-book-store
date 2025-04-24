@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { adding, deleteItem, minus } from "../../features/itemSlice";
+import { FaRegTrashAlt } from "react-icons/fa";
 
 const CartItem = ({ quantity, book }) => {
   const [itemQuantity, setItemQuantity] = useState(quantity);
@@ -53,11 +54,11 @@ const CartItem = ({ quantity, book }) => {
           </div>
         </div>
       </div>
-      <i
+      < FaRegTrashAlt
         className="bi bi-trash-fill"
         onClick={() => {
           dispatch(deleteItem(book.id));
-        }}></i>
+        }}/>
     </div>
   );
 };

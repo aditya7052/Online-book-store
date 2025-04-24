@@ -1,5 +1,6 @@
 import React, { useRef } from "react";
 import { Link } from "react-router-dom";
+import { IoMdClose } from "react-icons/io";
 
 const LowerHeader = ({ menuClicked, setMenuClicked }) => {
   const closeButton = useRef();
@@ -15,13 +16,13 @@ const LowerHeader = ({ menuClicked, setMenuClicked }) => {
       className="lower-header header-section"
       style={{ clipPath: menyStyle }}>
       {menuClicked && (
-        <i
+        < IoMdClose color="black" size={60}
           ref={closeButton}
           className="bi bi-x-lg"
-          onClick={() => setMenuClicked(!menuClicked)}></i>
+          onClick={() => setMenuClicked(!menuClicked)}/>
       )}
       <nav>
-        <ul>
+        <ul style={{color:"black"}}>
           <li onClick={handleClose}>
             <Link to="/">Home</Link>
           </li>

@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { authors } from "../../data/authors";
 import Author from "./author";
 import "./authors.css";
+import { FaSearch } from "react-icons/fa";
 
 const Authors = () => {
   const [searchValue, setSearchValue] = useState("");
@@ -18,7 +19,7 @@ const Authors = () => {
           value={searchValue}
           onChange={(e) => setSearchValue(e.target.value)}
         />
-        <i className="bi bi-search"></i>
+        < FaSearch className="bi bi-search"/>
       </div>
       <div className="authors-section">
         {authorsList.map((author) => (

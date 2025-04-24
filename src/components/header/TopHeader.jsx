@@ -1,22 +1,25 @@
 import React from "react";
 import { Link } from "react-router-dom";
-
+import { BsFillTelephoneFill } from "react-icons/bs";
+import { IoMdPerson } from "react-icons/io";
+import {IoMenu} from 'react-icons/io5'
 const TopHeader = ({ menuClicked, setMenuClicked }) => {
   return (
     <>
       <div className="top-header header-section">
-        <i
+        <IoMenu
           className="bi bi-list"
           onClick={() => {
             setMenuClicked(!menuClicked);
-          }}></i>
+          }}/>
         <div className="phone">
-          <i className="bi bi-telephone-fill"></i>
+          <BsFillTelephoneFill className="bi bi-telephone-fill" />
           7004429452
         </div>
         <h2>Welcome To Bookyy</h2>
         <Link to="/login" className="login-link">
-          <i className="bi bi-person-fill"></i>
+
+          <IoMdPerson className="bi bi-person-fill"/>
           Login
         </Link>
       </div>
