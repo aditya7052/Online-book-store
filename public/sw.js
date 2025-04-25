@@ -4,7 +4,7 @@ const CACHE_NAME = "mycache-v1";
 const urlsToCache = [
   "/",
   "/index.html",
-  // "/manifest.json",
+  "/manifest.json",
   // Authors
   "/authors/albert.jpg",
   "/authors/brain.jpg",
